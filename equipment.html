@@ -184,7 +184,7 @@
                             <span data-layout="list">
                                 <img src="images/list.svg" alt="list">
                             </span>
-                            <span data-layout="list"> 
+                            <span data-layout="list">
                                 <!-- data = burger -->
                                 <img src="images/burger.svg" alt="burger">
                             </span>
@@ -397,7 +397,7 @@
     </footer>
     <div id="copy-toast" class="copy-toast">Скопировано!</div>
 
-
+    <script src="script/copy.js"></script>
     <script>
         const selectTitles = document.querySelectorAll('.select-title');
 
@@ -407,24 +407,6 @@
                 parent.classList.toggle('active');
             });
         });
-
-        function showCopyToast() {
-            const toast = document.getElementById('copy-toast');
-            toast.classList.add('show');
-
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2000);
-        }
-
-        document.querySelectorAll('.article-copy-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const text = e.currentTarget.innerText.trim();
-                navigator.clipboard.writeText(text).then(() => {
-                    showCopyToast();
-                });
-            });
-        })
 
         const layoutButtons = document.querySelectorAll('.prod-layout-filter span');
         const productsBlock = document.querySelector('.eq-products-block');

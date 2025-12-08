@@ -171,6 +171,109 @@
                     </div>
                 </div>
             </div>
+
+            <div class="product-bottom">
+                <div class="product-description-tabs">
+                    <button class="active grey-btn">Описание</button>
+                    <button class="grey-btn">Спецификация</button>
+                    <button class="grey-btn">Отзывы (1)</button>
+                    <button class="grey-btn">Задать вопрос</button>
+                    <button class="grey-btn">Оплата и Доставка</button>
+                    <button class="grey-btn">Фото товара</button>
+                </div>
+                <div class="product-description-block">
+                    <div class="product-description-content">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="comments">
+            <h2 class="sec-title-2">Наши отзывы</h2>
+            <div class="swiper comments-swiper">
+                <div class="swiper-wrapper">
+                    <div class="comment-item swiper-slide">
+                        <div>
+                            <span>2025-03-25 10:27:40</span>
+                            <div class="stars">
+                                <img src="images/star-2.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                            </div>
+                        </div>
+                        <p class="text-22">Борис В.</p>
+                        <span>Покупал в Fibertool терминал GR-XP-ONU1-1A. Универсальное абонентское устройство работает
+                            как часы, что, впрочем, для GateRay норма. Менеджер магазина связался ссо мной буквально
+                            через 15 минут для подверждения заявки. Выслали на следующий день (заказывал после
+                            обеда).</span>
+                    </div>
+                    <div class="comment-item swiper-slide">
+                        <div>
+                            <span>2025-03-25 10:27:40</span>
+                            <div class="stars">
+                                <img src="images/star-2.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                            </div>
+                        </div>
+                        <p class="text-22">Борис В.</p>
+                        <span>Покупал в Fibertool терминал GR-XP-ONU1-1A. Универсальное абонентское устройство работает
+                            как часы, что, впрочем, для GateRay норма. Менеджер магазина связался ссо мной буквально
+                            через 15 минут для подверждения заявки. Выслали на следующий день (заказывал после
+                            обеда).</span>
+                    </div>
+                    <div class="comment-item swiper-slide">
+                        <div>
+                            <span>2025-03-25 10:27:40</span>
+                            <div class="stars">
+                                <img src="images/star-2.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                                <img src="images/star-red.svg" alt="star">
+                            </div>
+                        </div>
+                        <p class="text-22">Борис В.</p>
+                        <span>Покупал в Fibertool терминал GR-XP-ONU1-1A. Универсальное абонентское устройство работает
+                            как часы, что, впрочем, для GateRay норма. Менеджер магазина связался ссо мной буквально
+                            через 15 минут для подверждения заявки. Выслали на следующий день (заказывал после
+                            обеда).</span>
+                    </div>
+                </div>
+            </div>
+            <div class="to-comment">
+                <h3 class="text-22">Вы можете оставить свой отзыв:</h3>
+                <form class="form-type">
+                    <label>
+                        <p>Ваше имя<span style="color: #CF2124;">*</span></p>
+                        <input type="text" required>
+                    </label>
+                    <label>
+                        <p>Текст сообщения<span style="color: #CF2124;">*</span></p>
+                        <input type="text" required>
+                    </label>
+                    <div>
+                        <h3 class="text-22">Ваша оценка:</h3>
+                        <div class="stars">
+                            <img src="images/star-red.svg" alt="star">
+                            <img src="images/star-red.svg" alt="star">
+                            <img src="images/star-red.svg" alt="star">
+                            <img src="images/star-red.svg" alt="star">
+                            <img src="images/star-2.svg" alt="star">
+                        </div>
+                    </div>
+                    <button class="red-btn">Оставить отзыв</button>
+                </form>
+            </div>
         </section>
         <section class="recommendations">
             <h2 class="sec-title-2">Персональные рекомендации</h2>
@@ -285,8 +388,23 @@
     </footer>
     <div id="copy-toast" class="copy-toast">Скопировано!</div>
 
+    <script src="script/copy.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+
+        const tabs = document.querySelectorAll('.product-description-tabs button');
+        const block = document.querySelector('.product-description-content');
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                block.style.transform = `translateX(-${index * (100 / 6)}%)`;
+                console.log(block);
+                tabs.forEach(r => r.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        })
+
+
         var swiper = new Swiper(".mySwiper", {
             spaceBetween: 20,
             slidesPerView: 4,
@@ -299,6 +417,11 @@
             thumbs: {
                 swiper: swiper,
             },
+        });
+
+        var swiper3 = new Swiper(".comments-swiper", {
+            spaceBetween: 20,
+            slidesPerView: 3,
         });
     </script>
 </body>
